@@ -1,24 +1,13 @@
 import React,{useContext} from 'react';
 import { AuthContext } from '../Context/AuthContext';
-import {Route,Routes} from 'react-router-dom';
-import {Navigate} from 'react-router-dom';
-import Login from './Login';
+import {Navigate , Route} from 'react-router-dom';
+import useId from '@mui/material/utils/useId';
 
 
-function PrivateOutlet() {
-  const auth = useAuth();
-  return auth ? <Outlet /> : <Navigate to="/login" />;
-}
-
-function App() {
+function PrivateRoute({children}){
+  const{user}=useContext(AuthContext)
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/private-outlet" element={<Login />}>
-          <Route element={<Feed />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+    user?.uid?children:<Navigate to="/login"/>
+  )
 }
 export default PrivateRoute

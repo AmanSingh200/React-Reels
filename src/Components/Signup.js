@@ -15,6 +15,9 @@ import {Link,useNavigate} from  'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
 import { database,storage } from '../firebase';
 
+
+
+
 export default function Signup() {
     const useStyles = makeStyles({
         text1:{
@@ -35,6 +38,7 @@ export default function Signup() {
     const [loading,setLoading] = useState(false)
     const navigate = useNavigate();
     const {signup} = useContext(AuthContext);
+   
 
     const handleClick = async() => {
         if(file==null){

@@ -5,6 +5,8 @@ import Login from './Components/Login';
 import Feed from './Components/Feed';
 import {BrowserRouter as Router,Switch,Route,Routes, BrowserRouter} from 'react-router-dom';
 import {AuthProvider} from './Context/AuthContext'
+import Profile from './Components/Profile';
+import PrivateRoute from './Components/PrivateRoute';
 function App() {
   return (
       <Router>
@@ -13,11 +15,21 @@ function App() {
         
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
-          <Route path='/' element={<Feed/>}/>
+          <Route path='/profile/:id' element={
+            <PrivateRoute>
+              <Profile/>
+            </PrivateRoute>
+          }/>
+          <Route path='/' element={
+            <PrivateRoute>
+                <Feed/>
+            </PrivateRoute>
+          }/>
        
         </Routes>
         </AuthProvider>
        </Router>
+
   );
 }
 
