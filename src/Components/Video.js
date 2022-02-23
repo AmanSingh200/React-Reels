@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 function Video(props) {
     const handleClick=(e)=>{
         e.preventDefault();
-        e.target.muted=! e.target.muted
+        e.target.muted=!e.target.muted
     } 
     const handleScroll = (e)=>{
         let next =ReactDOM.findDOMNode(e.target).parentNode.nextSibling
@@ -16,8 +16,7 @@ function Video(props) {
     }
   return (
     
-    <video src={props.src} onEnded={handleScroll} className="videos-styling" muted="muted" onClick={handleClick}>
-
+    <video src={props.src} onEnded={handleScroll} autoPlay={true} className="videos-styling" id={props.id} muted="muted" onClick={handleClick}>
     </video>
   )
 }

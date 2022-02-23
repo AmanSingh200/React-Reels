@@ -30,13 +30,12 @@
 
 .icon-styling{
     position: absolute;
-    bottom: 2%;
     left: 10%;
 }
 
 .like{
     cursor: pointer;
-    color : #e74c3c
+    color : #e74c3c;
 }
 
 .unlike{

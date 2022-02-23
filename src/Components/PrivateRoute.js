@@ -1,13 +1,12 @@
-import React,{useContext} from 'react';
-import { AuthContext } from '../Context/AuthContext';
-import {Navigate , Route} from 'react-router-dom';
-import useId from '@mui/material/utils/useId';
+import React, { useContext } from 'react'
+import { AuthContext } from '../Context/AuthContext'
+import { Navigate, Route } from 'react-router-dom'
 
-
-function PrivateRoute({children}){
-  const{user}=useContext(AuthContext)
+function PrivateRoute({children}) {
+    const {user} = useContext(AuthContext)
   return (
-    user?.uid?children:<Navigate to="/login"/>
+      user?.uid ? children : <Navigate to="/login" />
   )
 }
+
 export default PrivateRoute
